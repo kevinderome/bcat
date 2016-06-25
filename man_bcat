@@ -1,0 +1,40 @@
+bcat(1)                                                                                                         User Commands                                                                                                        SED(1)
+
+
+
+NAME
+       bcat - Virtual braille display
+
+SYNOPSIS
+       bcat [OPTION] file
+
+DESCRIPTION
+       bcat  is a virtual braille display.
+       Read a file print on your braille display.
+
+       	-p, --print:
+
+		Print the file passing in parameter on STDOUT.
+
+	-s, --size:
+		Change the size of display.
+
+	-v, --version:
+		Output version information and exit.
+
+	-h, --help:
+		start quick for the new users.
+
+BUGS
+       E-mail bug reports to derome_k@epitech.eu.  Also, please include the output if avelable.
+
+AUTHOR
+       Written  by Kevin Derome.
+       	<derome_k@epitech.eu>
+
+COPYRIGHT
+       Copyright © 2016 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+       This is free software: you are free to change and redistribute it.  There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+    brltty
