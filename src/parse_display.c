@@ -5,7 +5,7 @@
 ** Login   <derome_k@epitech.net>
 **
 ** Started on  Sun Jun  5 22:01:43 2016 Kevin Derome
-** Last update Fri Jun 10 00:34:51 2016 Kevin Derome
+** Last update Wed May 10 02:13:53 2017 kevin
 */
 
 #include <stdio.h>
@@ -14,6 +14,17 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include "braille.h"
+
+void	cleanStr(char **str)
+{
+  int	i;
+
+  i = -1;
+  if (*str)
+    while ((*str)[++i])
+      if ((*str)[i] < ' ')
+	(*str)[i] = ' ';
+}
 
 char	*get_display(char *str, int size)
 {

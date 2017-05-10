@@ -5,7 +5,7 @@
 ** Login   <maison_f@epitech.net>
 **
 ** Started on  Thu Mar 10 03:54:00 2016 Maisonnave Florian
-** Last update Wed May 11 17:41:32 2016 Kevin Derome
+** Last update Wed May 10 02:10:19 2017 kevin
 */
 
 #include "get_next_line.h"
@@ -108,17 +108,26 @@ char		*get_next_line(const int fd)
   nb = 2;
   stock = check(buff, stock, nb);
   if (check_buff_lines(buff, nb))
+    {
+      cleanStr(&stock);
     return (stock);
+    }
   while ((rd = read(fd, &buff, READ_SIZE)))
     {
       size_malloc += rd + READ_SIZE;
       buff[rd] = '\0';
       stock = realloc_stock(buff, stock, size_malloc);
       if (check_buff_lines(buff, nb))
+	{
+	  cleanStr(&stock);
 	return (stock);
+	}
     }
   if (buff[0])
+    {
+      cleanStr(&stock);
     return (stock);
+    }
   free(stock);
   return (NULL);
 }
