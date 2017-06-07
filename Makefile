@@ -5,12 +5,12 @@
 ## Login   <derome_k@epitech.net>
 ## 
 ## Started on  Wed May 11 17:28:45 2016 Kevin Derome
-## Last update Sat Jun 25 21:35:25 2016 Kevin Derome
+## Last update Wed May 10 02:08:08 2017 kevin
 ##
 
 CC = 		gcc
 
-CFLAGS =	-W -Wextra -Wall -I./include -ansi -Werror -g
+CFLAGS =	-W -Wextra -Wall -I./include -g
 
 LD_FLAGS =	-lbrlapi
 

@@ -5,7 +5,7 @@
 ** Login   <maison_f@epitech.net>
 **
 ** Started on  Thu Mar 10 03:54:11 2016 Maisonnave Florian
-** Last update Thu Mar 10 18:39:47 2016 Maisonnave Florian
+** Last update Wed Jun  7 11:45:05 2017 kevin
 */
 
 # ifndef GET_NEXT_LINE_H_
@@ -27,5 +27,6 @@ char	*check(char*, char*, int);
 int	check_buff_lines(char*, int);
 char	*realloc_stock(char*, char*, int);
 char	*get_next_line(const int);
+void	cleanStr(char **str);
 
 # endif /* !GET_NEXT_LINE_H_ */

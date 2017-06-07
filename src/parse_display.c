@@ -5,7 +5,7 @@
 ** Login   <derome_k@epitech.net>
 **
 ** Started on  Sun Jun  5 22:01:43 2016 Kevin Derome
-** Last update Wed May 10 02:13:53 2017 kevin
+** Last update Fri May 19 23:54:07 2017 kevin
 */
 
 #include <stdio.h>
@@ -82,8 +82,13 @@ char	**extract_file(char *name)
   int	fd;
 
   l = 0;
-  if ((fd = open(name, O_RDONLY)) == -1)
-    exit(-1);
+  if (name)
+    {
+      if ((fd = open(name, O_RDONLY)) == -1)
+	exit(-1);
+    }
+  else
+    fd = 0;
   while ((tmp = get_next_line(fd)) && ++l)
     free(tmp);
   lseek(fd, SEEK_SET, 0);
