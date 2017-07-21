@@ -5,7 +5,7 @@
 // Login   <kevin@epitech.net>
 // 
 // Started on  Fri Jul 21 21:04:45 2017 kevin
-// Last update Fri Jul 21 21:13:24 2017 kevin
+// Last update Sat Jul 22 01:28:24 2017 kevin
 //
 
 #ifndef _BDEVICE_HH_
@@ -15,12 +15,15 @@
 
 class BDevice
 {
+public:
   BDevice();
   ~BDevice();
-  bool writeText(const std::string &str);
+  bool writeText(std::wstring texte);
+  bool writeText(std::string texte);
+  bool writeDots(const unsigned char *dots);
 private:
-  int	x;
-  int	y;
+  unsigned  int	x;
+  unsigned  int	y;
   std::string name;
   
 };
