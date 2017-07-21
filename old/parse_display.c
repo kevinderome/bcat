@@ -5,7 +5,7 @@
 ** Login   <derome_k@epitech.net>
 **
 ** Started on  Sun Jun  5 22:01:43 2016 Kevin Derome
-** Last update Fri May 19 23:54:07 2017 kevin
+** Last update Sun Jul 16 16:05:01 2017 kevin
 */
 
 #include <stdio.h>
@@ -22,7 +22,7 @@ void	cleanStr(char **str)
   i = -1;
   if (*str)
     while ((*str)[++i])
-      if ((*str)[i] < ' ')
+      if ((*str)[i] < ' ' && (*str)[i] >= '\0')
 	(*str)[i] = ' ';
 }
 

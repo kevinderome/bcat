@@ -1,38 +1,21 @@
-##
-## Makefile for  in /home/derome_k/rendu/my_42sh
-## 
-## Made by Kevin Derome
-## Login   <derome_k@epitech.net>
-## 
-## Started on  Wed May 11 17:28:45 2016 Kevin Derome
-## Last update Wed May 10 02:08:08 2017 kevin
-##
+CXX = 		g++
 
-CC = 		gcc
+CXXFLAGS =	-W -Wextra -Wall -I./include -g
 
-CFLAGS =	-W -Wextra -Wall -I./include -g
-
-LD_FLAGS =	-lbrlapi
+LDXX_FLAGS =	-lbrlapi
 
 RM = 		rm -f
 
-SRC = 		src/main.c \
-		src/initialize.c \
-		src/get_next_line.c \
-		src/display.c \
-		src/key_display_manager.c \
-		src/free_bcat.c \
-		src/string.c \
-		src/special_key.c \
-		src/parse_display.c
+SRC = 		src/BDevice.cpp \
+		src/main.cpp
 
 
 NAME = 		bcat
 
-OBJ = 		$(SRC:.c=.o)
+OBJ = 		$(SRC:.cpp=.o)
 
 $(NAME):	$(OBJ)
-		$(CC) -lbrlapi $(OBJ) -o $(NAME)
+		$(CXX) -lbrlapi $(OBJ) -o $(NAME)
 
 all:		$(NAME)
 
