@@ -5,7 +5,7 @@
 ** Login   <derome_k@epitech.net>
 **
 ** Started on  Wed May  4 01:20:09 2016 Kevin Derome
-** Last update Fri May 19 23:55:35 2017 kevin
+** Last update Fri Jul 21 21:57:35 2017 kevin
 */
 
 #include <stdio.h>
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
   (void)size;
 
   setlocale(LC_ALL, "fr_FR.utf8");
-    init(av);
+  init(av);
   if (get_display_size(&size) < 0)
     return (printf("bcat: error with brlapi\n"), 0);
   /*
