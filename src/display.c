@@ -5,7 +5,7 @@
 ** Login   <derome_k@epitech.net>
 **
 ** Started on  Wed Nov 11 02:23:44 2015 Kevin Derome
-** Last update Wed Jun 22 00:44:06 2016 Kevin Derome
+** Last update Sat Jul 29 23:22:38 2017 kevin
 */
 
 #include <brlapi.h>
@@ -53,10 +53,23 @@ void	virtual_reading(char ***text)
   key = 0;
   while (key != 'x')
     {
+      switch(key) {
+      case BRLAPI_KEY_TYPE_CMD|BRLAPI_KEY_CMD_LNUP:
+	nav_func[2](text, p);
+	break;
+      case BRLAPI_KEY_TYPE_CMD|BRLAPI_KEY_CMD_LNDN:
+	nav_func[3](text, p);
+	break;
+      default:
+	fprintf(stderr, "unknown key\n");
+	break;
+      }
+      /*
       l = -1;
       while (++l < 8)
 	if (key == nav_k[l])
-	  nav_func[l](text, p);
+	nav_func[l](text, p); */
+      
       if ((key = put_brl(text[p[0]][p[1]])) < 0)
 	exit(-2);
     }
