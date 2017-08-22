@@ -1,0 +1,15 @@
+38c38
+< 
+---
+>   
+43a44,48
+>       /*      
+>       if ((key = put_brl(text[p[0]][p[1]])) < 0)
+> 	exit(-2);
+>       */
+>       
+53c58,59
+<       default: break;
+---
+>       default:
+> 	break;

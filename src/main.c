@@ -1,12 +1,3 @@
-/*
-** main.c for  in /home/derome_k/rendu/my_42sh
-**
-** Made by Kevin Derome
-** Login   <derome_k@epitech.net>
-**
-** Started on  Wed May  4 01:20:09 2016 Kevin Derome
-** Last update Fri May 19 23:55:35 2017 kevin
-*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -23,7 +14,7 @@ int	main(int ac, char **av)
   (void)size;
 
   setlocale(LC_ALL, "fr_FR.utf8");
-    init(av);
+  init(av);
   if (get_display_size(&size) < 0)
     return (printf("bcat: error with brlapi\n"), 0);
   /*
@@ -31,8 +22,8 @@ int	main(int ac, char **av)
   return (printf("Usage: %s [option...] file(s)\n", *av), 0);*/
   if (! *(lines = extract_file(av[1])) ||
       ! (text = convert_display(lines, size)))
-    return (printf("%s: error there are a problem\n", av[0]), -1);
-  print(text);
+    return (printf("%s: error there are a problem\n", av[0]), 0);
+  //  print(text);
   virtual_reading(text);
   destroy(text);
   return (0);
