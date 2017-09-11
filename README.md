@@ -1,7 +1,6 @@
-# bcat
+# bcat 
 bcat is a braille cat for linux or mac os.
-bcat allows to read a filetext with a braille display
-The filetext is directly put on the braille display.
+bcat allows to read a filetext on the braille display.
 example :
 bcat foobar.txt
 **********

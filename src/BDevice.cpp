@@ -1,13 +1,3 @@
-//
-// BDevice.cpp for  in /home/kevin/Bureau/projet/bcat
-// 
-// Made by kevin
-// Login   <kevin@epitech.net>
-// 
-// Started on  Fri Jul 21 21:02:20 2017 kevin
-// Last update Sat Jul 29 22:36:46 2017 kevin
-//
-
 #include <brlapi.h>
 #include <iostream>
 #include "BDevice.hh"
@@ -15,8 +5,8 @@
 BDevice::BDevice() : accessibilityMode(false), x(0), y(0)
 {
   name.resize(BRLAPI_MAXNAMELENGTH + 1);
-this->socket = brlapi_openConnection(NULL, NULL);
- std::cout << "socket=" << this->socket << std::endl;
+  this->socket = brlapi_openConnection(NULL, NULL);
+  //  std::cout << "socket=" << this->socket << std::endl;
   brlapi_getDisplaySize(&x, &y);
   brlapi_getDriverName(&name[0], BRLAPI_MAXNAMELENGTH + 1);
 }
@@ -64,6 +54,28 @@ const std::string BDevice::getInfo() const
   info.resize(128);
   sprintf(&info[0], "%s:cell=%u:Line=%u", name.c_str(), this->x, this->y);
   return (info);
+}
+
+int	BDevice::readKey()
+{
+  std::cout << "ok reed" << std::endl;
+  brlapi_keyCode_t	key;
+  
+  brlapi_readKey(8, &key);
+  
+      switch(key) {
+      case BRLAPI_KEY_TYPE_CMD|BRLAPI_KEY_CMD_LNUP: return 1;
+      case BRLAPI_KEY_TYPE_CMD|BRLAPI_KEY_CMD_LNDN: return 2;
+      case BRLAPI_KEY_TYPE_CMD|BRLAPI_KEY_CMD_FWINLT: return 3;
+      case BRLAPI_KEY_TYPE_CMD|BRLAPI_KEY_CMD_FWINRT: return 4;
+      case 'n': return 5;
+      case 'c': return 6;
+      case ':': return 7;
+      case '-': return 8;
+      case 'x': return 9; break;
+      default: std::cerr << "Error: No mapping key" << std::endl; break;
+      }
+  return (0);
 }
 
 BDevice::~BDevice()

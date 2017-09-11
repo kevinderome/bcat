@@ -1,34 +1,33 @@
-//
-// main.cpp for  in /home/kevin/Bureau/projet/bcat
-// 
-// Made by kevin
-// Login   <kevin@epitech.net>
-// 
-// Started on  Fri Jul 21 21:07:04 2017 kevin
-// Last update Sun Jul 23 16:56:25 2017 kevin
-//
-
+#include "Bcat.hh"
 #include "BDevice.hh"
+
 #include <unistd.h>
 #include <string>
 #include <iostream>
 
-
-int main()
+int	main(int ac, char **av)
 {
-  setlocale(LC_ALL, "fr_FR.utf8");
-  std::string  txt = "Je vais lancer bash:";
-
-  BDevice *device = new BDevice();
-  device->enableAccessibilityMode();
-  device->writeText(txt);
-  sleep(10);
-  device->disableAccessibilityMode();
-  system("bash");
-  device->enableAccessibilityMode();
-  device->writeText("Bash quit...");
-  sleep(10);
-  device->disableAccessibilityMode();
-  std::cout << "info: " <<  device->getInfo() << std::endl;
-  return (0);
+  (void)ac;
+  BDevice *d = new BDevice();
+  Bcat bc(av[1]);
+  int	key;
+    
+  bc.read();
+  bc.start();
+  d->enableAccessibilityMode();
+  while (d->writeText(bc.getCurrentDisplay()))
+    switch (key = d->readKey())
+      {
+      case 1: bc.prevLine(); break;
+      case 2:  bc.nextLine(); break;
+      case 3:  bc.prevRegion(); break;
+      case 4: bc.nextRegion(); break;
+      case 5: bc.showLine(); break;
+      case 6: bc.begingFile(); break;
+      case 8: bc.endingFile(); break;
+      case 9: return 0; break;
+      default: std::cout << key << std::endl; break;
+      }
+  delete d;
+  return 0;
 }

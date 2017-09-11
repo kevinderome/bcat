@@ -1,25 +1,39 @@
-//
-// Bcat.hh for  in /home/kevin/Bureau/projet/bcat
-// 
-// Made by kevin
-// Login   <kevin@epitech.net>
-// 
-// Started on  Fri Jul 21 20:29:45 2017 kevin
-// Last update Fri Jul 21 20:32:20 2017 kevin
-//
+#ifndef BCAT_HH_
+#define BCAT_HH_
 
-#ifndef _BCAT_HH_
-#define _BCAT_HH_
-
+#include <vector>
 #include <string>
+
+using brlRegion = std::vector<std::vector<std::wstring>>;
 
 class Bcat
 {
 public:
-  Bcat(const std::string filename);
-  ~ba^at();
+  Bcat(const std::string& name);
+  void update();
+  void update(const std::wstring& str);
+  bool read();
+  std::vector<std::wstring> getRawText() const;
+  bool start();
+  void nextRegion();
+  void prevRegion();
+  void nextLine();
+  void prevLine();
+  void begingFile();
+  void middleFile();
+  void endingFile();
+  void showLine();
+  const std::wstring& getCurrentDisplay() const;
+  ~Bcat();
 private:
-  std::string filename;
+  brlRegion regions;
+  std::vector<std::wstring> parse(const std::wstring& str);
+  std::string name;
+  std::vector<std::wstring> rawText;
+  std::wstring	currentDisplay;
+  size_t	x;
+  size_t	y;
+  size_t	posLine;
 };
 
 #endif

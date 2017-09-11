@@ -7,6 +7,7 @@ LDXX_FLAGS =	-lbrlapi
 RM = 		rm -f
 
 SRC = 		src/BDevice.cpp \
+		src/Bcat.cpp \
 		src/main.cpp
 
 
