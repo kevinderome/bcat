@@ -1,12 +1,12 @@
+#include "BDevice.hh"
+
 #include <brlapi.h>
 #include <iostream>
-#include "BDevice.hh"
 
 BDevice::BDevice() : accessibilityMode(false), x(0), y(0)
 {
   name.resize(BRLAPI_MAXNAMELENGTH + 1);
   this->socket = brlapi_openConnection(NULL, NULL);
-  //  std::cout << "socket=" << this->socket << std::endl;
   brlapi_getDisplaySize(&x, &y);
   brlapi_getDriverName(&name[0], BRLAPI_MAXNAMELENGTH + 1);
 }
@@ -34,14 +34,14 @@ bool BDevice::writeDots(const dots *text)
   return (true);
 }
 
-bool BDevice::writeText(const std::wstring texte)
+bool BDevice::writeText(const std::wstring& texte)
 {
   if (brlapi_writeWText(0, texte.c_str()) < 0)
     return (false);
   return (true);
 }
 
-bool BDevice::writeText(const std::string texte)
+bool BDevice::writeText(const std::string& texte)
 {
   if (brlapi_writeText(0, texte.c_str()) < 0)
     return (false);
@@ -58,7 +58,6 @@ const std::string BDevice::getInfo() const
 
 int	BDevice::readKey()
 {
-  std::cout << "ok reed" << std::endl;
   brlapi_keyCode_t	key;
   
   brlapi_readKey(8, &key);
@@ -75,7 +74,7 @@ int	BDevice::readKey()
       case 'x': return 9; break;
       default: std::cerr << "Error: No mapping key" << std::endl; break;
       }
-  return (0);
+  return (key);
 }
 
 BDevice::~BDevice()

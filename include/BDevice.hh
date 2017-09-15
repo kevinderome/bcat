@@ -11,8 +11,8 @@ public:
   BDevice();
   bool enableAccessibilityMode();
   bool disableAccessibilityMode();
-  bool writeText(const std::wstring texte);
-  bool writeText(const std::string texte);
+  bool writeText(const std::wstring& texte);
+  bool writeText(const std::string& texte);
   bool writeDots(const dots *text);
   const std::string getInfo() const;
   int	readKey();

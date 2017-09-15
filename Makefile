@@ -16,7 +16,7 @@ NAME = 		bcat
 OBJ = 		$(SRC:.cpp=.o)
 
 $(NAME):	$(OBJ)
-		$(CXX) -lbrlapi $(OBJ) -o $(NAME)
+		$(CXX) $(LDXX_FLAGS)  $(OBJ) -o $(NAME)
 
 all:		$(NAME)
 

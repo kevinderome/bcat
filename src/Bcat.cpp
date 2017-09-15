@@ -1,10 +1,11 @@
+#include "Bcat.hh"
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <codecvt>
 #include <locale>
-#include "Bcat.hh"
 
 Bcat::Bcat(const std::string& name)
 {
@@ -130,6 +131,13 @@ void	Bcat::begingFile()
   update();
 }
 
+void	Bcat::middleFile()
+{
+  this->x = this->regions.size() / 2;
+  this->y = 0;
+  update();
+}
+
 void	Bcat::endingFile()
 {
   this->x = this->regions.size();
@@ -143,7 +151,10 @@ void	Bcat::endingFile()
 
 void	Bcat::showLine()
 {
-  std::wstring	line = L"1/x";
+  std::wstring	line;
+  line = std::to_wstring(x + 1);
+  line += L"/";
+  line += std::to_wstring(this->regions.size());
   update(line);
 }
 
@@ -161,6 +172,5 @@ void	Bcat::update(const std::wstring& str)
 
 const std::wstring	&Bcat::getCurrentDisplay() const
 {
-  //  return this->regions[x][y];
   return this->currentDisplay;
 }
