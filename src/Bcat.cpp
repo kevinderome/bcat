@@ -17,10 +17,6 @@ Bcat::Bcat(const std::string& name)
   this->name = name;
 }
 
-Bcat::~Bcat()
-{
-}
-
 bool	Bcat::read()
 {
   std::wstring line;
@@ -173,4 +169,8 @@ void	Bcat::update(const std::wstring& str)
 const std::wstring	&Bcat::getCurrentDisplay() const
 {
   return this->currentDisplay;
+}
+
+Bcat::~Bcat()
+{
 }

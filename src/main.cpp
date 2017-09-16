@@ -7,7 +7,10 @@
 
 int main(int ac, char **av)
 {
-  (void)ac;
+  if (ac != 2) {
+    std::cout << av[0] << ": usage: " << av[0] << " <file>" << std::endl;
+    return 1;
+  }
   BDevice *device = new BDevice();
   Bcat bc(av[1]);
   int	key;
