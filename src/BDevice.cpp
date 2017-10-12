@@ -2,6 +2,7 @@
 
 #include <brlapi.h>
 #include <iostream>
+#include <stdio.h>
 
 BDevice::BDevice() : accessibilityMode(false), x(0), y(0)
 {

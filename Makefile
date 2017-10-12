@@ -1,6 +1,6 @@
 CXX = 		g++
 
-CXXFLAGS =	-W -Wextra -Wall -I./include -g
+CXXFLAGS =	-std=c++14 -W -Wextra -Wall -I./include -g
 
 LDXX_FLAGS =	-lbrlapi
 
