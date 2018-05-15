@@ -73,7 +73,6 @@ int	BDevice::readKey()
       case ':': return 7;
       case '-': return 8;
       case 'x': return 9; break;
-      default: std::cerr << "Error: No mapping key" << std::endl; break;
       }
   return (key);
 }
