@@ -73,6 +73,7 @@ int	BDevice::readKey()
       case ':': return 7;
       case '-': return 8;
       case 'x': return 9; break;
+      case 'q': return 10; break;
       }
   return (key);
 }

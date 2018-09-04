@@ -25,11 +25,14 @@ bool	Bcat::read()
 
   rf.imbue(loc);
   rf.open(this->name.c_str());
-  if (rf)
+  if (rf){
     while (getline(rf, line))
       rawText.push_back(line);
   if (!rawText.size())
     rawText.push_back(L"");
+  }
+  else
+    return false;
   rf.close();
   return (true);
 }

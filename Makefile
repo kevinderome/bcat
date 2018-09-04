@@ -27,10 +27,12 @@ fclean:		clean
 		$(RM) $(NAME)
 
 install:
+	@echo "Installing..."
 	@chmod 444 /etc/brlapi.key
 	@cp $(NAME) /usr/bin
-	@echo "success install"
+	@echo "Install success fully !"
 uninstall:
+	@echo "Uninstalling..."
 	@$(RM) /usr/bin/$(NAME)
-	@echo "success uninstall"
+	@echo "Uninstall success fully !"
 re:		clean fclean all

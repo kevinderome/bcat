@@ -44,7 +44,10 @@ int main(int ac, char **av)
   Bcat bc(av[1]);
   int	key;
     
-  bc.read();
+  if (!bc.read()){
+    std::cerr << "Bcat: File is invalide, verify your path" << std::endl;
+    return 0;
+  }
   bc.start();
   device->enableAccessibilityMode();
   while (device->writeText(bc.getCurrentDisplay()))
@@ -62,6 +65,7 @@ int main(int ac, char **av)
       case 7: bc.middleFile(); break;
       case 8: bc.endingFile(); break;
       case 9: delete device; return 0; break;
+      case 10: delete device; return 0; break;
       default: 	bc.displayOld();
       }
   delete device;
