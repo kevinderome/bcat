@@ -23,6 +23,7 @@ public:
   void middleFile();
   void endingFile();
   void showLine();
+  void	displayOld();
   const std::wstring& getCurrentDisplay() const;
   ~Bcat();
 private:
@@ -31,6 +32,7 @@ private:
   std::string name;
   std::vector<std::wstring> rawText;
   std::wstring	currentDisplay;
+  std::wstring	oldDisplay; 
   size_t	x;
   size_t	y;
   size_t	posLine;

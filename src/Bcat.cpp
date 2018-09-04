@@ -156,12 +156,14 @@ void	Bcat::showLine()
 
 void	Bcat::update()
 {
+  oldDisplay = currentDisplay;
   currentDisplay.clear();
   this->currentDisplay = regions[x][y];
 }
 
 void	Bcat::update(const std::wstring& str)
 {
+  oldDisplay = currentDisplay;
   currentDisplay.clear();
   this->currentDisplay = str;
 }
@@ -169,6 +171,11 @@ void	Bcat::update(const std::wstring& str)
 const std::wstring	&Bcat::getCurrentDisplay() const
 {
   return this->currentDisplay;
+}
+
+void Bcat::displayOld()
+{
+  currentDisplay = oldDisplay;
 }
 
 Bcat::~Bcat()
