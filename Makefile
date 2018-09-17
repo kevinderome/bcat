@@ -1,6 +1,6 @@
 CXX = 		g++
 
-CXXFLAGS =	-std=c++14 -W -Wextra -Wall -I./include -g
+CXXFLAGS =	-std=c++14 -W -Wextra -Wall -I./include
 
 LDXX_FLAGS =	-lbrlapi
 
@@ -30,9 +30,9 @@ install:
 	@echo "Installing..."
 	@chmod 444 /etc/brlapi.key
 	@cp $(NAME) /usr/bin
-	@echo "Install success fully !"
+	@echo "Install success full!"
 uninstall:
 	@echo "Uninstalling..."
 	@$(RM) /usr/bin/$(NAME)
-	@echo "Uninstall success fully !"
+	@echo "Uninstall success full!"
 re:		clean fclean all
