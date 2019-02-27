@@ -40,7 +40,6 @@ int main(int ac, char **av)
     showVersion();
     return 0;
   }
-  BDevice *device = new BDevice();
   Bcat bc(av[1]);
   int	key;
     
@@ -49,6 +48,7 @@ int main(int ac, char **av)
     return 0;
   }
   bc.start();
+  BDevice *device = new BDevice();
   device->enableAccessibilityMode();
   while (device->writeText(bc.getCurrentDisplay()))
     switch (key = device->readKey())
